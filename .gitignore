@@ -1,0 +1,17 @@
+**/**.pdf
+**/**.zip
+**/__MACOSX
+
+**/**.class
+**/**.exe
+**/**.o
+# **/**.txt
+
+/ignoreMe
+#/tests
+/notes
+/out
+
+# Para el IDE IntelliJ IDEA
+**/**.iml
+/.idea

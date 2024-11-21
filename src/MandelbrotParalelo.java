@@ -104,7 +104,7 @@ public class MandelbrotParalelo extends JPanel {
         JFrame ventana = new JFrame("Fractal Mandelbrot - Paralelo");
 
         int numeroHilos = Runtime.getRuntime().availableProcessors(); // Pa obtener el número de hilos disponibles
-        // System.out.println("Número de hilos: " + numeroHilos);
+        System.out.println("Número de hilos: " + numeroHilos);
 
         MandelbrotParalelo panel = new MandelbrotParalelo(numeroHilos);
         ventana.add(panel);

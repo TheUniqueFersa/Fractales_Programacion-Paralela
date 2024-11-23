@@ -24,18 +24,18 @@ public class JuliaSecuencial extends JPanel{
                 int y = evento.getY();
 
 
-                // Calcula el nuevo centro en el plano complejo
+                // Calcula el nuevo centro en el plano de Argand
                 desplazamientoX += (x - ANCHO / 2.0) / (ZOOM_BASE * factorZoom);
                 desplazamientoY += (y - ALTO / 2.0) / (ZOOM_BASE * factorZoom);
 
-                // Ajusta el zoom
+                // zoom
                 if (evento.getButton() == java.awt.event.MouseEvent.BUTTON1) { // Zoom in
                     factorZoom *= 1.5;
                 } else if (evento.getButton() == java.awt.event.MouseEvent.BUTTON3) { // Zoom out
                     factorZoom /= 1.5;
                 }
 
-                // Mide el tiempo de generación
+                // tiempo para generar de nuevo
                 long tiempoInicio = System.nanoTime();
                 generarFractal();
                 long tiempoFin = System.nanoTime();

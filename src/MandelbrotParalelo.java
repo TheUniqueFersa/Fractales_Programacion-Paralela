@@ -7,7 +7,7 @@ import javax.swing.*;
 public class MandelbrotParalelo extends JPanel {
     private static final int ANCHO = 1000;
     private static final int ALTO = 800;
-    private static final int ITERACIONES_MAXIMAS = 10000;
+    private static int ITERACIONES_MAXIMAS = 10000;
     private static final double ZOOM_BASE = 300;
 
     private BufferedImage imagen;
@@ -24,7 +24,7 @@ public class MandelbrotParalelo extends JPanel {
                 int x = evento.getX();
                 int y = evento.getY();
 
-                // Calcula el nuevo centro en el plano complejo
+                // nuevo centro
                 desplazamientoX += (x - ANCHO / 2.0) / (ZOOM_BASE * factorZoom);
                 desplazamientoY += (y - ALTO / 2.0) / (ZOOM_BASE * factorZoom);
 
@@ -102,11 +102,16 @@ public class MandelbrotParalelo extends JPanel {
 
     public static void main(String[] args) {
         JFrame ventana = new JFrame("Fractal Mandelbrot - Paralelo");
-
+        if (args.length > 0)
+            MandelbrotParalelo.ITERACIONES_MAXIMAS = Integer.parseInt(args[0]);
+        else
+        MandelbrotParalelo.ITERACIONES_MAXIMAS = 10000;
         int numeroHilos = Runtime.getRuntime().availableProcessors(); // Pa obtener el número de hilos disponibles
         System.out.println("Número de hilos: " + numeroHilos);
 
         MandelbrotParalelo panel = new MandelbrotParalelo(numeroHilos);
+        
+
         ventana.add(panel);
         ventana.setSize(ANCHO, ALTO);
         ventana.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

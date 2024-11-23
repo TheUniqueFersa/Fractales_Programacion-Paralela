@@ -5,7 +5,7 @@ import javax.swing.*;
 public class MandelbrotSecuencial extends JPanel {
     private static final int ANCHO = 1000;
     private static final int ALTO = 800;
-    private static final int ITERACIONES_MAXIMAS = 1000;
+    public static int ITERACIONES_MAXIMAS = 10000;
     private static final double ZOOM_BASE = 300;
 
     private BufferedImage imagen;
@@ -73,7 +73,12 @@ public class MandelbrotSecuencial extends JPanel {
 
     public static void main(String[] args) {
         JFrame ventana = new JFrame("Fractal Mandelbrot - Secuencial");
+        if (args.length > 0)
+            MandelbrotSecuencial.ITERACIONES_MAXIMAS = Integer.parseInt(args[0]);
+        else
+            MandelbrotSecuencial.ITERACIONES_MAXIMAS = 10000;
         MandelbrotSecuencial panel = new MandelbrotSecuencial();
+
         ventana.add(panel);
         ventana.setSize(ANCHO, ALTO);
         ventana.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

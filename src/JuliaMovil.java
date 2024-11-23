@@ -24,7 +24,7 @@ public class JuliaMovil extends JPanel {
         // Generar el fractal inicial
         generarFractal();
 
-        // Timer para animación
+        // Timer para animación :)
         Timer timer = new Timer(25, e -> {
             angle += 0.05;
             generarFractal();

@@ -32,7 +32,7 @@ public class JuliaParalelo extends JPanel {
                 int y = evento.getY();
 
 
-                // Calcula el nuevo centro en el plano complejo
+                // Para el nuevo centro en el plano de mi tio Argand
                 desplazamientoX += (x - ANCHO / 2.0) / (ZOOM_BASE * factorZoom);
                 desplazamientoY += (y - ALTO / 2.0) / (ZOOM_BASE * factorZoom);
 
@@ -53,10 +53,13 @@ public class JuliaParalelo extends JPanel {
             }
         });
     }
-    // Versión paralela de generarFractal
+        
     private void generarFractalParalelo() {
-        double cX = -0.7269;
-        double cY = 0.1889;
+        // double cX = -0.7269;
+        // double cY = 0.1889;
+
+        double cX = 0;
+        double cY = 0.68;
 
         ExecutorService executor = Executors.newFixedThreadPool(Runtime.getRuntime().availableProcessors());
         int filasPorHilo = ALTO / Runtime.getRuntime().availableProcessors();
